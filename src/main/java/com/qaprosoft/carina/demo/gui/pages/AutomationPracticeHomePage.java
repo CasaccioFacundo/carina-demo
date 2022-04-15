@@ -19,13 +19,16 @@ public class AutomationPracticeHomePage extends AbstractPage {
     @FindBy(name = "submitNewsletter")
     private ExtendedWebElement newsletterSubmit;
 
-    @FindBy(xpath = "//*[@id=\"contact-link\"]/a")
+    @FindBy(className = "alert-success")
+    private ExtendedWebElement newsletterSucceed;
+
+    @FindBy(xpath = "//a[@title='Contact Us']")
     private ExtendedWebElement contactLink;
 
-    @FindBy(xpath = "//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")
-    private ExtendedWebElement logIn;
+    @FindBy(className = "login")
+    private ExtendedWebElement signIn;
 
-    @FindBy(xpath = "//*[@id=\"header\"]/div[3]/div/div/div[3]/div/a")
+    @FindBy(xpath = "//a[@title='View my shopping cart']")
     private ExtendedWebElement cart;
 
     public AutomationPracticeHomePage(WebDriver driver) {
@@ -33,32 +36,20 @@ public class AutomationPracticeHomePage extends AbstractPage {
         setPageAbsoluteURL("http://automationpractice.com/index.php");
     }
 
-    public ExtendedWebElement getSearchBox(){
-        return this.searchBox;
+    public AutomationPracticeSignInPage navigateSignIn() {
+        this.signIn.click();
+        return new AutomationPracticeSignInPage(driver);
     }
 
-    public ExtendedWebElement getSubmitSearch() {
-        return submitSearch;
+    public AutomationPracticeSearchResultPage searchProduct(String text){
+        this.searchBox.type(text);
+        this.submitSearch.click();
+        return new AutomationPracticeSearchResultPage(driver);
     }
 
-    public ExtendedWebElement getNewsletterInput() {
-        return newsletterInput;
-    }
-
-    public ExtendedWebElement getNewsletterSubmit() {
-        return newsletterSubmit;
-    }
-
-    public ExtendedWebElement getContactLink() {
-        return contactLink;
-    }
-
-    public ExtendedWebElement getLogIn() {
-        return logIn;
-    }
-
-    public ExtendedWebElement getCart() {
-        return cart;
+    public void subscribeNewsletter(String email){
+        this.newsletterInput.type(email);
+        this.newsletterSubmit.click();
     }
 }
 
