@@ -2,34 +2,32 @@ package com.qaprosoft.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.carina.demo.gui.components.AddedProductModal;
+import com.qaprosoft.carina.demo.gui.components.ProductCard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class AutomationPracticeSearchResultPage extends AbstractPage {
 
-    @FindBy(xpath = "//a[@title='Add to cart']")
-    private ExtendedWebElement addToCart;
+    @FindBy(xpath = "//div[@class='product-container']")
+    private ProductCard productCard;
 
-    @FindBy(className = "heading-counter")
+    @FindBy(xpath = "//div[@id='layer_cart']")
+    private AddedProductModal addedProductModal;
+
+    @FindBy(xpath = "//span[@class='heading-counter']")
     private ExtendedWebElement resultsCounter;
-
-    @FindBy(xpath = "//a[@title='Proceed to checkout']")
-    private ExtendedWebElement proceedToCheckout;
-
-    @FindBy(className = "cart_block_product_name")
-    private ExtendedWebElement cartProduct;
 
     public AutomationPracticeSearchResultPage(WebDriver driver) {
         super(driver);
     }
 
-    public void addToCart() {
-        this.addToCart.click();
+    public void clickAddToCartButton() {
+        productCard.clickAddToCartButton();
     }
 
-    public AutomationPracticeShoppingCartSummary continueCheckout() {
-        this.proceedToCheckout.click();
-        return new AutomationPracticeShoppingCartSummary(driver);
+    public AutomationPracticeShoppingCartSummary clickContinueCheckout() {
+        return addedProductModal.clickProceedToCheckOutButton();
     }
 }
 

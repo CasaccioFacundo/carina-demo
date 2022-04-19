@@ -15,127 +15,127 @@ public class AutomationPracticeCreateAccountPage extends AbstractPage {
     private ExtendedWebElement femaleGenderRadio;
 
     @FindBy(id = "customer_firstname")
-    private ExtendedWebElement customerFirstName;
+    private ExtendedWebElement customerFirstNameInput;
 
     @FindBy(id = "customer_lastname")
-    private ExtendedWebElement customerLastName;
+    private ExtendedWebElement customerLastNameInput;
 
     @FindBy(id = "email")
-    private ExtendedWebElement email;
+    private ExtendedWebElement emailInput;
 
     @FindBy(id = "passwd")
-    private ExtendedWebElement password;
+    private ExtendedWebElement passwordInput;
 
     //Date of birth
     @FindBy(id = "days")
-    private ExtendedWebElement days;
+    private ExtendedWebElement daysSelect;
 
     @FindBy(id = "months")
-    private ExtendedWebElement months;
+    private ExtendedWebElement monthsSelect;
 
     @FindBy(id = "years")
-    private ExtendedWebElement years;
+    private ExtendedWebElement yearsSelect;
 
     //YOUR ADDRESS
     @FindBy(id = "firstname")
-    private ExtendedWebElement firstName;
+    private ExtendedWebElement firstNameInput;
 
     @FindBy(id = "lastname")
-    private ExtendedWebElement lastname;
+    private ExtendedWebElement lastnameInput;
 
     @FindBy(id = "address1")
-    private ExtendedWebElement address1;
+    private ExtendedWebElement address1Input;
 
     @FindBy(id = "ciry")
-    private ExtendedWebElement city;
+    private ExtendedWebElement cityInput;
 
     @FindBy(id = "id_state")
-    private ExtendedWebElement state;
+    private ExtendedWebElement stateSelect;
 
     @FindBy(id = "postcode")
-    private ExtendedWebElement zipCode;
+    private ExtendedWebElement zipCodeInput;
 
     @FindBy(id = "id_country")
-    private ExtendedWebElement country;
+    private ExtendedWebElement countryInput;
 
     @FindBy(id = "phone_mobile")
-    private ExtendedWebElement mobilePhone;
+    private ExtendedWebElement mobilePhoneInput;
 
     @FindBy(id = "alias")
-    private ExtendedWebElement alias;
+    private ExtendedWebElement aliasInput;
 
     @FindBy(id = "submitAccount")
-    private ExtendedWebElement register;
+    private ExtendedWebElement registerButton;
 
     public AutomationPracticeCreateAccountPage(WebDriver driver) {
         super(driver);
     }
 
     public void selectGender(String gender) {
-        if(gender.equalsIgnoreCase("male")) this.maleGenderRadio.click();
-        if(gender.equalsIgnoreCase("female")) this.femaleGenderRadio.click();
+        if(gender.equalsIgnoreCase("male")) maleGenderRadio.click();
+        if(gender.equalsIgnoreCase("female")) femaleGenderRadio.click();
     }
 
     public void fillPersonalFirstName(String name) {
-        this.customerFirstName.type(name);
+        customerFirstNameInput.type(name);
     }
 
     public void fillPersonalLastName(String lastname) {
-        this.customerLastName.type(lastname);
+        customerLastNameInput.type(lastname);
     }
 
     public void fillEmail (String email) {
-        this.email.type(email);
+        emailInput.type(email);
     }
 
     public void fillPassword(String password) {
-        this.password.type(password);
+        passwordInput.type(password);
     }
 
     public void selectBirthDate(int day, int month, int year) {
-        this.days.select(day);
-        this.months.select(month);
-        this.years.select(String.valueOf(year));
+        daysSelect.select(day);
+        monthsSelect.select(month);
+        yearsSelect.select(String.valueOf(year));
     }
 
     public void fillAddressFirstName(String firstName) {
-        this.firstName.type(firstName);
+        firstNameInput.type(firstName);
     }
 
     public void fillAddressLastName(String lastName) {
-        this.lastname.type(lastName);
+        lastnameInput.type(lastName);
     }
 
     public void fillAddress(String address) {
-        this.address1.type(address);
+        address1Input.type(address);
     }
 
     public void fillCity(String city) {
-        this.city.type(city);
+        cityInput.type(city);
     }
 
     public void selectState(String state) {
-        this.state.select(state);
+        stateSelect.select(state);
     }
 
     public void fillZipCode(String zipCode) {
-        this.zipCode.type(zipCode);
+        zipCodeInput.type(zipCode);
     }
 
     public void fillCountry(String country) {
-        this.country.select(country);
+        countryInput.select(country);
     }
 
     public void fillMobilePhone(String phoneNumber) {
-        this.mobilePhone.type(phoneNumber);
+        mobilePhoneInput.type(phoneNumber);
     }
 
     public void fillAlias(String alias){
-        this.alias.type(alias);
+        aliasInput.type(alias);
     }
 
-    public AutomationPracticeHomePage register() {
-        this.register.click();
+    public AutomationPracticeHomePage clickRegisterButton() {
+        registerButton.click();
         return new AutomationPracticeHomePage(driver);
     }
 }

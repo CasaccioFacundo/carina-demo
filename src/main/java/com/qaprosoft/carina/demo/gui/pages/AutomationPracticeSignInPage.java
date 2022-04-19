@@ -9,34 +9,34 @@ public class AutomationPracticeSignInPage extends AbstractPage {
 
     //Account creation
     @FindBy(id = "email_create")
-    private ExtendedWebElement emailCreate;
+    private ExtendedWebElement accountCreationEmailInput;
 
     @FindBy(id = "SubmitCreate")
-    private ExtendedWebElement createAccount;
+    private ExtendedWebElement createAccountButton;
 
     //Login
     @FindBy(id = "email")
-    private ExtendedWebElement email;
+    private ExtendedWebElement emailInput;
 
     @FindBy(id = "passwd")
-    private ExtendedWebElement password;
+    private ExtendedWebElement passwordInput;
 
     @FindBy(id = "SubmitLogin")
-    private ExtendedWebElement signIn;
+    private ExtendedWebElement signInButton;
 
     public AutomationPracticeSignInPage(WebDriver driver) {
         super(driver);
     }
 
-    public AutomationPracticeCreateAccountPage createAccount(String email) {
-        this.emailCreate.type(email);
-        this.createAccount.click();
+    public AutomationPracticeCreateAccountPage clickCreateAccount(String email) {
+        accountCreationEmailInput.type(email);
+        createAccountButton.click();
         return new AutomationPracticeCreateAccountPage(driver);
     }
 
     public void failLogin(String email, String incorrectPassword) {
-        this.email.type(email);
-        this.password.type(incorrectPassword);
-        this.signIn.click();
+        emailInput.type(email);
+        passwordInput.type(incorrectPassword);
+        signInButton.click();
     }
 }

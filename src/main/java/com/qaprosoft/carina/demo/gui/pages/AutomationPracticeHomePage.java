@@ -8,10 +8,10 @@ import org.openqa.selenium.support.FindBy;
 public class AutomationPracticeHomePage extends AbstractPage {
 
     @FindBy(id = "search_query_top")
-    private ExtendedWebElement searchBox;
+    private ExtendedWebElement searchBoxInput;
 
     @FindBy(name = "submit_search")
-    private ExtendedWebElement submitSearch;
+    private ExtendedWebElement submitSearchBox;
 
     @FindBy(id = "newsletter-input")
     private ExtendedWebElement newsletterInput;
@@ -20,13 +20,13 @@ public class AutomationPracticeHomePage extends AbstractPage {
     private ExtendedWebElement newsletterSubmit;
 
     @FindBy(className = "alert-success")
-    private ExtendedWebElement newsletterSucceed;
+    private ExtendedWebElement newsletterSucceedAlert;
 
     @FindBy(xpath = "//a[@title='Contact Us']")
     private ExtendedWebElement contactLink;
 
     @FindBy(className = "login")
-    private ExtendedWebElement signIn;
+    private ExtendedWebElement signInLink;
 
     @FindBy(xpath = "//a[@title='View my shopping cart']")
     private ExtendedWebElement cart;
@@ -36,20 +36,20 @@ public class AutomationPracticeHomePage extends AbstractPage {
         setPageAbsoluteURL("http://automationpractice.com/index.php");
     }
 
-    public AutomationPracticeSignInPage navigateSignIn() {
-        this.signIn.click();
+    public AutomationPracticeSignInPage clickSignInLink() {
+        signInLink.click();
         return new AutomationPracticeSignInPage(driver);
     }
 
     public AutomationPracticeSearchResultPage searchProduct(String text){
-        this.searchBox.type(text);
-        this.submitSearch.click();
+        searchBoxInput.type(text);
+        submitSearchBox.click();
         return new AutomationPracticeSearchResultPage(driver);
     }
 
     public void subscribeNewsletter(String email){
-        this.newsletterInput.type(email);
-        this.newsletterSubmit.click();
+        newsletterInput.type(email);
+        newsletterSubmit.click();
     }
 }
 

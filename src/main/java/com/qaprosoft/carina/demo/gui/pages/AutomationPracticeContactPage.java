@@ -8,43 +8,45 @@ import org.openqa.selenium.support.FindBy;
 public class AutomationPracticeContactPage extends AbstractPage {
 
     @FindBy(id = "id_contact")
-    private ExtendedWebElement subjectHeading;
+    private ExtendedWebElement subjectHeadingSelect;
 
     @FindBy(id = "email")
-    private ExtendedWebElement emailAddress;
+    private ExtendedWebElement emailAddressInput;
 
     @FindBy(id = "id_order")
-    private ExtendedWebElement orderReference;
+    private ExtendedWebElement orderReferenceInput;
 
     @FindBy(id = "message")
-    private ExtendedWebElement message;
+    private ExtendedWebElement messageInput;
 
     @FindBy(id = "submitMessage")
-    private ExtendedWebElement send;
+    private ExtendedWebElement sendButton;
+
+    @FindBy(xpath = "//p[text()='Your message has been successfully sent to our team.']")
+    private ExtendedWebElement successfulMessageAlert;
 
     public AutomationPracticeContactPage(WebDriver driver) {
         super(driver);
     }
 
     public void selectSubjectHeading(String subjectHeading) {
-        this.subjectHeading.select(subjectHeading);
+        subjectHeadingSelect.select(subjectHeading);
     }
 
     public void fillEmail(String email) {
-        this.emailAddress.type(email);
+        emailAddressInput.type(email);
     }
 
     public void fillOrderReference(String orderReference) {
-        this.orderReference.type(orderReference);
+        orderReferenceInput.type(orderReference);
     }
 
     public void writeMessage(String message) {
-        this.message.type(message);
+        messageInput.type(message);
     }
 
-    public AutomationPracticeContactControllerPage sendMessage() {
-        this.send.click();
-        return new AutomationPracticeContactControllerPage(driver);
+    public void clickSendMessage() {
+        sendButton.click();
     }
 
 
