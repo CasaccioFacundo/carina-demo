@@ -23,4 +23,9 @@ public class ProductCard extends AbstractUIObject {
     public void clickAddToCartButton() {
         addToCartButton.click();
     }
+
+    public String readProductName() {
+        return productName.getText();
+
+    }
 }

@@ -8,63 +8,63 @@ import org.openqa.selenium.support.FindBy;
 public class AutomationPracticeCreateAccountPage extends AbstractPage {
 
     //YOUR PERSONAL INFORMATION
-    @FindBy(id = "id_gender1")
+    @FindBy(xpath = "//input[@id='id_gender1']")
     private ExtendedWebElement maleGenderRadio;
 
-    @FindBy(id = "id_gender2")
+    @FindBy(xpath = "//input[@id='id_gender2']")
     private ExtendedWebElement femaleGenderRadio;
 
-    @FindBy(id = "customer_firstname")
+    @FindBy(xpath = "//input[@id='customer_firstname']")
     private ExtendedWebElement customerFirstNameInput;
 
-    @FindBy(id = "customer_lastname")
+    @FindBy(xpath = "//input[@id='customer_lastname']")
     private ExtendedWebElement customerLastNameInput;
 
-    @FindBy(id = "email")
+    @FindBy(xpath = "//input[@id='email']")
     private ExtendedWebElement emailInput;
 
-    @FindBy(id = "passwd")
+    @FindBy(xpath = "//input[@id='passwd']")
     private ExtendedWebElement passwordInput;
 
     //Date of birth
-    @FindBy(id = "days")
+    @FindBy(xpath = "//select[@id='days']")
     private ExtendedWebElement daysSelect;
 
-    @FindBy(id = "months")
+    @FindBy(xpath = "//select[@id='months']")
     private ExtendedWebElement monthsSelect;
 
-    @FindBy(id = "years")
+    @FindBy(xpath = "//select[@id='years']")
     private ExtendedWebElement yearsSelect;
 
     //YOUR ADDRESS
-    @FindBy(id = "firstname")
+    @FindBy(xpath = "//input[@id='firstname']")
     private ExtendedWebElement firstNameInput;
 
-    @FindBy(id = "lastname")
+    @FindBy(xpath = "//input[@id='lastname']")
     private ExtendedWebElement lastnameInput;
 
-    @FindBy(id = "address1")
+    @FindBy(xpath = "//input[@id='address1']")
     private ExtendedWebElement address1Input;
 
-    @FindBy(id = "ciry")
+    @FindBy(xpath = "//input[@id='city']")
     private ExtendedWebElement cityInput;
 
-    @FindBy(id = "id_state")
+    @FindBy(xpath = "//select[@id='id_state']")
     private ExtendedWebElement stateSelect;
 
-    @FindBy(id = "postcode")
+    @FindBy(xpath = "//input[@id='postcode']")
     private ExtendedWebElement zipCodeInput;
 
-    @FindBy(id = "id_country")
+    @FindBy(xpath = "//select[@id='id_country']")
     private ExtendedWebElement countryInput;
 
-    @FindBy(id = "phone_mobile")
+    @FindBy(xpath = "//input[@id='phone_mobile']")
     private ExtendedWebElement mobilePhoneInput;
 
-    @FindBy(id = "alias")
+    @FindBy(xpath = "//input[@id='alias]")
     private ExtendedWebElement aliasInput;
 
-    @FindBy(id = "submitAccount")
+    @FindBy(xpath = "//button[@id='submitAccount]")
     private ExtendedWebElement registerButton;
 
     public AutomationPracticeCreateAccountPage(WebDriver driver) {

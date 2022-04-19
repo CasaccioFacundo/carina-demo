@@ -7,25 +7,25 @@ import org.openqa.selenium.support.FindBy;
 
 public class AutomationPracticeHomePage extends AbstractPage {
 
-    @FindBy(id = "search_query_top")
+    @FindBy(xpath = "//input[@name='search_query']")
     private ExtendedWebElement searchBoxInput;
 
-    @FindBy(name = "submit_search")
+    @FindBy(xpath = "//button[@name='submit_search']")
     private ExtendedWebElement submitSearchBox;
 
-    @FindBy(id = "newsletter-input")
+    @FindBy(xpath = "//input[@id='newsletter-input']")
     private ExtendedWebElement newsletterInput;
 
-    @FindBy(name = "submitNewsletter")
+    @FindBy(xpath = "//button[@name='submitNewsletter']")
     private ExtendedWebElement newsletterSubmit;
 
-    @FindBy(className = "alert-success")
+    @FindBy(xpath = "//p[text()=' Newsletter : You have successfully subscribed to this newsletter.']")
     private ExtendedWebElement newsletterSucceedAlert;
 
     @FindBy(xpath = "//a[@title='Contact Us']")
     private ExtendedWebElement contactLink;
 
-    @FindBy(className = "login")
+    @FindBy(xpath = "//a[text()='Sign in'")
     private ExtendedWebElement signInLink;
 
     @FindBy(xpath = "//a[@title='View my shopping cart']")

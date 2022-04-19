@@ -7,19 +7,19 @@ import org.openqa.selenium.support.FindBy;
 
 public class AutomationPracticeContactPage extends AbstractPage {
 
-    @FindBy(id = "id_contact")
+    @FindBy(xpath = "//select[@id='uniform-id_contact']")
     private ExtendedWebElement subjectHeadingSelect;
 
-    @FindBy(id = "email")
+    @FindBy(xpath = "//input[@id='email']")
     private ExtendedWebElement emailAddressInput;
 
-    @FindBy(id = "id_order")
+    @FindBy(xpath = "//input[@id='id_order']")
     private ExtendedWebElement orderReferenceInput;
 
-    @FindBy(id = "message")
+    @FindBy(xpath = "//textarea[@id='message']")
     private ExtendedWebElement messageInput;
 
-    @FindBy(id = "submitMessage")
+    @FindBy(xpath = "//button[@name='submitMessage']")
     private ExtendedWebElement sendButton;
 
     @FindBy(xpath = "//p[text()='Your message has been successfully sent to our team.']")

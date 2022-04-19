@@ -7,10 +7,12 @@ import com.qaprosoft.carina.demo.gui.components.ProductCard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class AutomationPracticeSearchResultPage extends AbstractPage {
 
-    @FindBy(xpath = "//div[@class='product-container']")
-    private ProductCard productCard;
+    @FindBy(xpath = "//ul[@class='product_list']//li")
+    private List<ProductCard> products;
 
     @FindBy(xpath = "//div[@id='layer_cart']")
     private AddedProductModal addedProductModal;
@@ -22,8 +24,11 @@ public class AutomationPracticeSearchResultPage extends AbstractPage {
         super(driver);
     }
 
-    public void clickAddToCartButton() {
-        productCard.clickAddToCartButton();
+    public void addProductToCart(String name) {
+        for (ProductCard product:products) {
+            if(product.readProductName().equalsIgnoreCase(name))
+                product.clickAddToCartButton();
+        }
     }
 
     public AutomationPracticeShoppingCartSummary clickContinueCheckout() {

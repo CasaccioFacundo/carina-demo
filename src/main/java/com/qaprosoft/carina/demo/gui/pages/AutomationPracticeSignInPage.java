@@ -8,20 +8,20 @@ import org.openqa.selenium.support.FindBy;
 public class AutomationPracticeSignInPage extends AbstractPage {
 
     //Account creation
-    @FindBy(id = "email_create")
+    @FindBy(xpath = "//input[@id='email_create']")
     private ExtendedWebElement accountCreationEmailInput;
 
-    @FindBy(id = "SubmitCreate")
+    @FindBy(xpath = "//button[@id='SubmitCreate']")
     private ExtendedWebElement createAccountButton;
 
     //Login
-    @FindBy(id = "email")
+    @FindBy(xpath = "//input[@id='email]")
     private ExtendedWebElement emailInput;
 
-    @FindBy(id = "passwd")
+    @FindBy(xpath = "//input[@id='passwd]")
     private ExtendedWebElement passwordInput;
 
-    @FindBy(id = "SubmitLogin")
+    @FindBy(xpath = "//button[@id='SubmitLogin]")
     private ExtendedWebElement signInButton;
 
     public AutomationPracticeSignInPage(WebDriver driver) {
