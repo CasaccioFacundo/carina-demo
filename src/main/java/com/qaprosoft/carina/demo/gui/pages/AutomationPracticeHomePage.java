@@ -53,5 +53,9 @@ public class AutomationPracticeHomePage extends AbstractPage {
         newsletterInput.type(email);
         newsletterSubmit.click();
     }
+
+    public String getNewsletterSubscribedAlert() {
+        return newsletterSucceedAlert.getText();
+    }
 }
 

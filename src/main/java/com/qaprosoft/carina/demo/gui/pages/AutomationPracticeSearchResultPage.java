@@ -27,5 +27,9 @@ public class AutomationPracticeSearchResultPage extends AbstractPage {
         }
         return new AutomationPracticeAddedProductModalPage(driver);
     }
+
+    public String getResultsCounter(){
+        return resultsCounter.getText();
+    }
 }
 
