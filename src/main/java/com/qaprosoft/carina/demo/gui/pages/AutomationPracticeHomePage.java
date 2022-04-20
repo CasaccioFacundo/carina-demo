@@ -1,5 +1,7 @@
 package com.qaprosoft.carina.demo.gui.pages;
 
+import com.qaprosoft.carina.core.foundation.utils.Configuration;
+import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +35,7 @@ public class AutomationPracticeHomePage extends AbstractPage {
 
     public AutomationPracticeHomePage(WebDriver driver) {
         super(driver);
-        setPageAbsoluteURL("http://automationpractice.com/index.php");
+        setPageAbsoluteURL(R.CONFIG.get(Configuration.Parameter.URL.getKey()));
     }
 
     public AutomationPracticeSignInPage clickSignInLink() {

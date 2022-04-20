@@ -1,14 +1,14 @@
-package com.qaprosoft.carina.demo.gui.components;
+package com.qaprosoft.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractUIObject;
-import com.qaprosoft.carina.demo.gui.pages.AutomationPracticeShoppingCartSummary;
+import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class AddedProductModal extends AbstractUIObject {
+public class AutomationPracticeAddedProductModalPage extends AbstractPage {
 
-    @FindBy(xpath = ".//span[@class='product-name']")
+
+    @FindBy(xpath = ".//span[@id='layer_cart_product_title']")
     private ExtendedWebElement productName;
 
     @FindBy(xpath = ".//span[@id='layer_cart_product_price']")
@@ -20,12 +20,13 @@ public class AddedProductModal extends AbstractUIObject {
     @FindBy(xpath = ".//a[@title='Proceed to checkout']")
     private ExtendedWebElement proceedToCheckOutButton;
 
-    public AddedProductModal(WebDriver driver) {
+    public AutomationPracticeAddedProductModalPage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickContinueShoppingButton() {
+    public AutomationPracticeSearchResultPage clickContinueShoppingButton() {
         continueShoppingButton.click();
+        return new AutomationPracticeSearchResultPage(driver);
     }
 
     public AutomationPracticeShoppingCartSummary clickProceedToCheckOutButton() {

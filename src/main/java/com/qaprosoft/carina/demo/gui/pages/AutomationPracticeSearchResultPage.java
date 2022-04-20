@@ -2,7 +2,6 @@ package com.qaprosoft.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.carina.demo.gui.components.AddedProductModal;
 import com.qaprosoft.carina.demo.gui.components.ProductCard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -14,9 +13,6 @@ public class AutomationPracticeSearchResultPage extends AbstractPage {
     @FindBy(xpath = "//ul[@class='product_list']//li")
     private List<ProductCard> products;
 
-    @FindBy(xpath = "//div[@id='layer_cart']")
-    private AddedProductModal addedProductModal;
-
     @FindBy(xpath = "//span[@class='heading-counter']")
     private ExtendedWebElement resultsCounter;
 
@@ -24,15 +20,12 @@ public class AutomationPracticeSearchResultPage extends AbstractPage {
         super(driver);
     }
 
-    public void addProductToCart(String name) {
+    public AutomationPracticeAddedProductModalPage addProductToCart(String name) {
         for (ProductCard product:products) {
-            if(product.readProductName().equalsIgnoreCase(name))
+            if(product.getProductName().equalsIgnoreCase(name))
                 product.clickAddToCartButton();
         }
-    }
-
-    public AutomationPracticeShoppingCartSummary clickContinueCheckout() {
-        return addedProductModal.clickProceedToCheckOutButton();
+        return new AutomationPracticeAddedProductModalPage(driver);
     }
 }
 
