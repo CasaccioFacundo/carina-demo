@@ -14,8 +14,8 @@ public class AutomationPracticeShoppingCartSummary extends AbstractPage {
         super(driver);
     }
 
-    public AutomationPracticeHomePage clickProceedCheckout() {
+    public AutomationPracticeSignInPage clickProceedCheckout() {
         proceedToCheckoutButton.click();
-        return new AutomationPracticeHomePage(driver);
+        return new AutomationPracticeSignInPage(driver);
     }
 }

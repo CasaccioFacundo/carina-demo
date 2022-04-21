@@ -27,7 +27,7 @@ public class AutomationPracticeHomePage extends AbstractPage {
     @FindBy(xpath = "//a[@title='Contact Us']")
     private ExtendedWebElement contactLink;
 
-    @FindBy(xpath = "//a[text()='Sign in'")
+    @FindBy(xpath = "//a[@class='login']")
     private ExtendedWebElement signInLink;
 
     @FindBy(xpath = "//a[@title='View my shopping cart']")
@@ -56,6 +56,11 @@ public class AutomationPracticeHomePage extends AbstractPage {
 
     public String getNewsletterSubscribedAlert() {
         return newsletterSucceedAlert.getText();
+    }
+
+    public AutomationPracticeContactPage goToContactPage() {
+        contactLink.click();
+        return new AutomationPracticeContactPage(driver);
     }
 }
 

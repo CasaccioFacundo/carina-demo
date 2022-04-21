@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AutomationPracticeSearchResultPage extends AbstractPage {
 
-    @FindBy(xpath = "//ul[@class='product_list']//li")
+    @FindBy(xpath = "//ul[@class='product_list']/li")
     private List<ProductCard> products;
 
     @FindBy(xpath = "//span[@class='heading-counter']")
@@ -31,5 +31,6 @@ public class AutomationPracticeSearchResultPage extends AbstractPage {
     public String getResultsCounter(){
         return resultsCounter.getText();
     }
+
 }
 

@@ -20,10 +20,7 @@ public class AutomationPracticeHomePageInputsTest implements IAbstractTest {
         AutomationPracticeSearchResultPage searchResultPage = homePage.searchProduct("blouse");
 
         //Check if any result was shown
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(searchResultPage.getResultsCounter(), "\n" +
-                "            1 result has been found.        ");
-
+        Assert.assertEquals(searchResultPage.getResultsCounter(), "1 result has been found.");
     }
 
     @Test()
@@ -34,11 +31,10 @@ public class AutomationPracticeHomePageInputsTest implements IAbstractTest {
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
 
         //Subscribe to newsletter
-        homePage.subscribeNewsletter("randomemail@gmail.com");
+        homePage.subscribeNewsletter("randomemail222@gmail.com");
 
         //Check for success alert
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(homePage.getNewsletterSubscribedAlert(), " Newsletter : You have successfully subscribed to this newsletter.");
+        Assert.assertEquals(homePage.getNewsletterSubscribedAlert(), "Newsletter : You have successfully subscribed to this newsletter.", "Subsciprion failed");
     }
 
 }

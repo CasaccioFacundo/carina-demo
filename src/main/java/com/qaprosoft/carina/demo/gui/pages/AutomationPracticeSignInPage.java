@@ -15,20 +15,23 @@ public class AutomationPracticeSignInPage extends AbstractPage {
     private ExtendedWebElement createAccountButton;
 
     //Login
-    @FindBy(xpath = "//input[@id='email]")
+    @FindBy(xpath = "//input[@id='email']")
     private ExtendedWebElement emailInput;
 
-    @FindBy(xpath = "//input[@id='passwd]")
+    @FindBy(xpath = "//input[@id='passwd']")
     private ExtendedWebElement passwordInput;
 
-    @FindBy(xpath = "//button[@id='SubmitLogin]")
+    @FindBy(xpath = "//button[@id='SubmitLogin']")
     private ExtendedWebElement signInButton;
+
+    @FindBy(xpath = "//li[text()='Authentication failed.']")
+    private ExtendedWebElement authenticationErrorAlert;
 
     public AutomationPracticeSignInPage(WebDriver driver) {
         super(driver);
     }
 
-    public AutomationPracticeCreateAccountPage clickCreateAccount(String email) {
+    public AutomationPracticeCreateAccountPage createAccountWithEmail(String email) {
         accountCreationEmailInput.type(email);
         createAccountButton.click();
         return new AutomationPracticeCreateAccountPage(driver);
@@ -38,5 +41,17 @@ public class AutomationPracticeSignInPage extends AbstractPage {
         emailInput.type(email);
         passwordInput.type(incorrectPassword);
         signInButton.click();
+    }
+
+    public String getSignInButton() {
+        return signInButton.getText();
+    }
+
+    public String getCreateAccountButton() {
+        return createAccountButton.getText();
+    }
+
+    public String getAuthenticationErrorAlertMessage() {
+        return authenticationErrorAlert.getText();
     }
 }
