@@ -43,12 +43,12 @@ public class AutomationPracticeSignInPage extends AbstractPage {
         signInButton.click();
     }
 
-    public String getSignInButton() {
-        return signInButton.getText();
+    public boolean isSignInButtonPresent() {
+        return signInButton.isElementPresent();
     }
 
-    public String getCreateAccountButton() {
-        return createAccountButton.getText();
+    public boolean isCreateAccountButtonPresent() {
+        return createAccountButton.isElementPresent();
     }
 
     public String getAuthenticationErrorAlertMessage() {

@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class AutomationPracticeProceedCheckoutTest implements IAbstractTest {
 
     @Test()
-    public void testProceedCheckoutWithoutLoggin() {
+    public void testProceedCheckoutWithoutLogin() {
         //Open homepage and verify it opened correctly
         AutomationPracticeHomePage homePage = new AutomationPracticeHomePage(getDriver());
         homePage.open();
@@ -18,13 +18,18 @@ public class AutomationPracticeProceedCheckoutTest implements IAbstractTest {
         AutomationPracticeSearchResultPage searchResultPage = homePage.searchProduct("blouse");
         Assert.assertTrue(searchResultPage.allElementListsAreNotEmpty());
 
-        //Add product to cart and proceed checkout
+        //Add product to cart and check if added
         AutomationPracticeAddedProductModalPage addedProductModalPage = searchResultPage.addProductToCart("blouse");
+        Assert.assertTrue(addedProductModalPage.isCartNotEmpty());
+
+        //Check modal displayed correctly and click proceed to check out
+        Assert.assertTrue(addedProductModalPage.isProceedToCheckOutButtonPresent());
         AutomationPracticeShoppingCartSummary shoppingCartSummary = addedProductModalPage.clickProceedToCheckOutButton();
 
-        //At shopping cart summary, click proceed to checkout and check for request signin page
+        //At shopping cart summary, click proceed to check out and check for request sign in page
+        Assert.assertTrue(shoppingCartSummary.isProceedToCheckOutButtonPresent());
         AutomationPracticeSignInPage signInPage = shoppingCartSummary.clickProceedCheckout();
-        Assert.assertEquals(signInPage.getSignInButton(), "Sign in");
-        Assert.assertEquals(signInPage.getCreateAccountButton(), "Create an account");
+        Assert.assertTrue(signInPage.isSignInButtonPresent(), "Sign in was not requested");
+        Assert.assertTrue(signInPage.isCreateAccountButtonPresent(), "Create an account was not requested");
     }
 }

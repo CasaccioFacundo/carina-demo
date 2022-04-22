@@ -22,11 +22,12 @@ public class ProductCard extends AbstractUIObject {
     }
 
     public void clickAddToCartButton() {
+        productName.hover();
         addToCartButton.click();
     }
 
+
     public String getProductName() {
         return productName.getText();
-
     }
 }

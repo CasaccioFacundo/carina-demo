@@ -7,6 +7,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.util.Random;
+
 public class AutomationPracticeHomePageInputsTest implements IAbstractTest {
 
     @Test()
@@ -19,8 +21,10 @@ public class AutomationPracticeHomePageInputsTest implements IAbstractTest {
         //Search for product
         AutomationPracticeSearchResultPage searchResultPage = homePage.searchProduct("blouse");
 
-        //Check if any result was shown
-        Assert.assertEquals(searchResultPage.getResultsCounter(), "1 result has been found.");
+        //Check counter, products shown and if they match
+        Assert.assertTrue(searchResultPage.isAnyResultFound());
+        Assert.assertTrue(searchResultPage.isAnyProductShown());
+        Assert.assertTrue(searchResultPage.resultAndCounterMatch());
     }
 
     @Test()
@@ -31,10 +35,10 @@ public class AutomationPracticeHomePageInputsTest implements IAbstractTest {
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
 
         //Subscribe to newsletter
-        homePage.subscribeNewsletter("randomemail222@gmail.com");
+        homePage.subscribeNewsletter("randomemail" + new Random().nextInt() + "@gmail.com");
 
         //Check for success alert
-        Assert.assertEquals(homePage.getNewsletterSubscribedAlert(), "Newsletter : You have successfully subscribed to this newsletter.", "Subsciprion failed");
+        Assert.assertTrue(homePage.isSuccessfulAlertPresent(), "Error subscribing to newsletter");
     }
 
 }

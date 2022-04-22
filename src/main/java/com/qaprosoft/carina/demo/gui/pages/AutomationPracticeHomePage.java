@@ -54,8 +54,8 @@ public class AutomationPracticeHomePage extends AbstractPage {
         newsletterSubmit.click();
     }
 
-    public String getNewsletterSubscribedAlert() {
-        return newsletterSucceedAlert.getText();
+    public boolean isSuccessfulAlertPresent() {
+        return newsletterSucceedAlert.isElementPresent();
     }
 
     public AutomationPracticeContactPage goToContactPage() {

@@ -8,16 +8,17 @@ import org.openqa.selenium.support.FindBy;
 public class AutomationPracticeAddedProductModalPage extends AbstractPage {
 
 
-    @FindBy(xpath = ".//span[@id='layer_cart_product_title']")
+    @FindBy(xpath = "//span[@id='layer_cart_product_title']")
     private ExtendedWebElement productName;
 
-    @FindBy(xpath = ".//span[@id='layer_cart_product_price']")
+    @FindBy(xpath = "//span[@id='layer_cart_product_price']")
     private ExtendedWebElement productPrice;
 
-    @FindBy(xpath = ".//span[@title='Continue shopping']")
+    @FindBy(xpath = "//span[@title='Continue shopping']")
     private ExtendedWebElement continueShoppingButton;
 
-    @FindBy(xpath = ".//a[@title='Proceed to checkout']")
+    @FindBy(xpath = "//span[text()='\n" +
+            "\t\t\t\t\t\t\tProceed to checkout']")
     private ExtendedWebElement proceedToCheckOutButton;
 
     public AutomationPracticeAddedProductModalPage(WebDriver driver) {
@@ -32,5 +33,13 @@ public class AutomationPracticeAddedProductModalPage extends AbstractPage {
     public AutomationPracticeShoppingCartSummary clickProceedToCheckOutButton() {
         proceedToCheckOutButton.click();
         return new AutomationPracticeShoppingCartSummary(driver);
+    }
+
+    public boolean isProceedToCheckOutButtonPresent() {
+        return proceedToCheckOutButton.isElementPresent() ;
+    }
+
+    public boolean isCartNotEmpty() {
+        return productName.isElementPresent();
     }
 }

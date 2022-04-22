@@ -8,6 +8,8 @@ import com.qaprosoft.carina.demo.gui.pages.AutomationPracticeSignInPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class AutomationPracticeRegisterTest implements IAbstractTest {
 
     @Test()
@@ -21,7 +23,7 @@ public class AutomationPracticeRegisterTest implements IAbstractTest {
         AutomationPracticeSignInPage signInPage = homepage.clickSignInLink();
 
         //Fill email and click create account
-        AutomationPracticeCreateAccountPage createAccountPage = signInPage.createAccountWithEmail("accountcreationemail1212as@gmail.com");
+        AutomationPracticeCreateAccountPage createAccountPage = signInPage.createAccountWithEmail("randomemail" + new Random().nextInt() + "@gmail.com");
 
         //Fill register form fields
         createAccountPage.selectGender("male");
