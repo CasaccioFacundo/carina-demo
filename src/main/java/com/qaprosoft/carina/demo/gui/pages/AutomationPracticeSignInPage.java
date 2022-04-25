@@ -51,7 +51,7 @@ public class AutomationPracticeSignInPage extends AbstractPage {
         return createAccountButton.isElementPresent();
     }
 
-    public String getAuthenticationErrorAlertMessage() {
-        return authenticationErrorAlert.getText();
+    public boolean getAuthenticationErrorAlertMessage() {
+        return authenticationErrorAlert.isElementPresent();
     }
 }

@@ -22,6 +22,6 @@ public class AutomationPracticeLogInTest implements IAbstractTest {
         signInPage.failLogin("correctuser@gmail.com", "incorrectpwd");
 
         //Check for error alert
-        Assert.assertEquals(signInPage.getAuthenticationErrorAlertMessage(), "Authentication failed.");
+        Assert.assertTrue(signInPage.getAuthenticationErrorAlertMessage(), "Authentication failed.");
     }
 }

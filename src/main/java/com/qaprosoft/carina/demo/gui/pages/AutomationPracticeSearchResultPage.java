@@ -35,17 +35,12 @@ public class AutomationPracticeSearchResultPage extends AbstractPage {
         return resultsCounter.getText();
     }
 
-    public boolean isAnyResultFound() {
-        return !resultsCounter.getText().equalsIgnoreCase("\n" +
-                "            0 results have been found.        ");
-    }
-
     public boolean isAnyProductShown() {
         return !products.isEmpty();
     }
 
-    public boolean resultAndCounterMatch() {
-        return products.size() == Integer.parseInt(resultsCounter.getText().replaceAll("[^0-9]", ""));
+    public int getProductsQuantity() {
+        return products.size();
     }
 }
 

@@ -49,8 +49,8 @@ public class AutomationPracticeContactPage extends AbstractPage {
         sendButton.click();
     }
 
-    public String getMessageAlert() {
-        return successfulMessageAlert.getText();
+    public boolean getMessageAlert() {
+        return successfulMessageAlert.isElementPresent();
     }
 
 

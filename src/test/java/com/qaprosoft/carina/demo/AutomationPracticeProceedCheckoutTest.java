@@ -15,15 +15,15 @@ public class AutomationPracticeProceedCheckoutTest implements IAbstractTest {
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
 
         //Search for product and check products were found
-        AutomationPracticeSearchResultPage searchResultPage = homePage.searchProduct("blouse");
+        AutomationPracticeSearchResultPage searchResultPage = homePage.searchProduct("Blouse");
         Assert.assertTrue(searchResultPage.allElementListsAreNotEmpty());
 
-        //Add product to cart and check if added
-        AutomationPracticeAddedProductModalPage addedProductModalPage = searchResultPage.addProductToCart("blouse");
-        Assert.assertTrue(addedProductModalPage.isCartNotEmpty());
+        //Add product to cart
+        AutomationPracticeAddedProductModalPage addedProductModalPage = searchResultPage.addProductToCart("Blouse");
 
-        //Check modal displayed correctly and click proceed to check out
+        //Check modal is displayed and product added, then click proceed to check out
         Assert.assertTrue(addedProductModalPage.isProceedToCheckOutButtonPresent());
+        Assert.assertEquals(addedProductModalPage.getProductNameOnModal(), "Blouse");
         AutomationPracticeShoppingCartSummary shoppingCartSummary = addedProductModalPage.clickProceedToCheckOutButton();
 
         //At shopping cart summary, click proceed to check out and check for request sign in page

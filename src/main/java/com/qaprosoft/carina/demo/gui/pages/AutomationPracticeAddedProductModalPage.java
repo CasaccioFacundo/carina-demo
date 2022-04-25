@@ -17,8 +17,7 @@ public class AutomationPracticeAddedProductModalPage extends AbstractPage {
     @FindBy(xpath = "//span[@title='Continue shopping']")
     private ExtendedWebElement continueShoppingButton;
 
-    @FindBy(xpath = "//span[text()='\n" +
-            "\t\t\t\t\t\t\tProceed to checkout']")
+    @FindBy(xpath = "//a[@title='Proceed to checkout']")
     private ExtendedWebElement proceedToCheckOutButton;
 
     public AutomationPracticeAddedProductModalPage(WebDriver driver) {
@@ -37,6 +36,10 @@ public class AutomationPracticeAddedProductModalPage extends AbstractPage {
 
     public boolean isProceedToCheckOutButtonPresent() {
         return proceedToCheckOutButton.isElementPresent() ;
+    }
+
+    public String getProductNameOnModal() {
+        return productName.getText();
     }
 
     public boolean isCartNotEmpty() {

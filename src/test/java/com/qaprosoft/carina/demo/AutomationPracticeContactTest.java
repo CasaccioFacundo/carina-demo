@@ -26,6 +26,6 @@ public class AutomationPracticeContactTest implements IAbstractTest {
         contactPage.clickSendMessage();
 
         //Verify alert of message successfully sent
-        Assert.assertEquals(contactPage.getMessageAlert(), "Your message has been successfully sent to our team.", "Failed to send message");
+        Assert.assertTrue(contactPage.getMessageAlert(),"Failed to send message");
     }
 }

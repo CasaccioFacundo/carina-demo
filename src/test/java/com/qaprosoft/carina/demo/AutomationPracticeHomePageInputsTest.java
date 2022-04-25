@@ -5,7 +5,6 @@ import com.qaprosoft.carina.demo.gui.pages.AutomationPracticeHomePage;
 import com.qaprosoft.carina.demo.gui.pages.AutomationPracticeSearchResultPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.util.Random;
 
@@ -22,9 +21,9 @@ public class AutomationPracticeHomePageInputsTest implements IAbstractTest {
         AutomationPracticeSearchResultPage searchResultPage = homePage.searchProduct("blouse");
 
         //Check counter, products shown and if they match
-        Assert.assertTrue(searchResultPage.isAnyResultFound());
+        Assert.assertEquals(searchResultPage.getResultsCounter(), "1 result has been found.");
         Assert.assertTrue(searchResultPage.isAnyProductShown());
-        Assert.assertTrue(searchResultPage.resultAndCounterMatch());
+        Assert.assertEquals( searchResultPage.getProductsQuantity(), Integer.parseInt(searchResultPage.getResultsCounter().replaceAll("[^0-9]", "")));
     }
 
     @Test()
