@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AutomationPracticeContactPage extends AbstractPage {
 
-    @FindBy(xpath = "//select[@id='uniform-id_contact']")
+    @FindBy(xpath = "//select[@id='id_contact']")
     private ExtendedWebElement subjectHeadingSelect;
 
     @FindBy(xpath = "//input[@id='email']")
@@ -47,6 +47,10 @@ public class AutomationPracticeContactPage extends AbstractPage {
 
     public void clickSendMessage() {
         sendButton.click();
+    }
+
+    public boolean getMessageAlert() {
+        return successfulMessageAlert.isElementPresent();
     }
 
 

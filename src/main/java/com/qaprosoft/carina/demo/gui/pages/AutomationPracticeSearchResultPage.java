@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AutomationPracticeSearchResultPage extends AbstractPage {
 
-    @FindBy(xpath = "//ul[@class='product_list']//li")
+    @FindBy(xpath = "//div[@class='product-container']")
     private List<ProductCard> products;
 
     @FindBy(xpath = "//span[@class='heading-counter']")
@@ -21,11 +21,26 @@ public class AutomationPracticeSearchResultPage extends AbstractPage {
     }
 
     public AutomationPracticeAddedProductModalPage addProductToCart(String name) {
-        for (ProductCard product:products) {
-            if(product.getProductName().equalsIgnoreCase(name))
-                product.clickAddToCartButton();
+        ProductCard productCard;
+        for (int i = 0; i < products.size(); i++) {
+            productCard = products.get(i);
+            if(productCard.getProductName().equalsIgnoreCase(name)) {
+                productCard.clickAddToCartButton();
+            }
         }
         return new AutomationPracticeAddedProductModalPage(driver);
+    }
+
+    public String getResultsCounter(){
+        return resultsCounter.getText();
+    }
+
+    public boolean isAnyProductShown() {
+        return !products.isEmpty();
+    }
+
+    public int getProductsQuantity() {
+        return products.size();
     }
 }
 

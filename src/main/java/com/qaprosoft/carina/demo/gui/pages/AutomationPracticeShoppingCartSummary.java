@@ -7,15 +7,19 @@ import org.openqa.selenium.support.FindBy;
 
 public class AutomationPracticeShoppingCartSummary extends AbstractPage {
 
-    @FindBy(xpath = "//a[@title='Proceed to checkout']")
+    @FindBy(xpath = "//span[text()='Proceed to checkout']")
     private ExtendedWebElement proceedToCheckoutButton;
 
     public AutomationPracticeShoppingCartSummary(WebDriver driver) {
         super(driver);
     }
 
-    public AutomationPracticeHomePage clickProceedCheckout() {
+    public AutomationPracticeSignInPage clickProceedCheckout() {
         proceedToCheckoutButton.click();
-        return new AutomationPracticeHomePage(driver);
+        return new AutomationPracticeSignInPage(driver);
+    }
+
+    public boolean isProceedToCheckOutButtonPresent() {
+        return proceedToCheckoutButton.isElementPresent();
     }
 }

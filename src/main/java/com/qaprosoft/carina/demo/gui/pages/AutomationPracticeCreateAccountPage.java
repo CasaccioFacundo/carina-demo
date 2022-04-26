@@ -61,10 +61,10 @@ public class AutomationPracticeCreateAccountPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='phone_mobile']")
     private ExtendedWebElement mobilePhoneInput;
 
-    @FindBy(xpath = "//input[@id='alias]")
+    @FindBy(xpath = "//input[@id='alias']")
     private ExtendedWebElement aliasInput;
 
-    @FindBy(xpath = "//button[@id='submitAccount]")
+    @FindBy(xpath = "//button[@id='submitAccount']")
     private ExtendedWebElement registerButton;
 
     public AutomationPracticeCreateAccountPage(WebDriver driver) {
@@ -84,10 +84,6 @@ public class AutomationPracticeCreateAccountPage extends AbstractPage {
         customerLastNameInput.type(lastname);
     }
 
-    public void fillEmail (String email) {
-        emailInput.type(email);
-    }
-
     public void fillPassword(String password) {
         passwordInput.type(password);
     }
@@ -95,15 +91,7 @@ public class AutomationPracticeCreateAccountPage extends AbstractPage {
     public void selectBirthDate(int day, int month, int year) {
         daysSelect.select(day);
         monthsSelect.select(month);
-        yearsSelect.select(String.valueOf(year));
-    }
-
-    public void fillAddressFirstName(String firstName) {
-        firstNameInput.type(firstName);
-    }
-
-    public void fillAddressLastName(String lastName) {
-        lastnameInput.type(lastName);
+        yearsSelect.selectByPartialText(String.valueOf(year));
     }
 
     public void fillAddress(String address) {
@@ -122,7 +110,7 @@ public class AutomationPracticeCreateAccountPage extends AbstractPage {
         zipCodeInput.type(zipCode);
     }
 
-    public void fillCountry(String country) {
+    public void selectCountry(String country) {
         countryInput.select(country);
     }
 
@@ -130,12 +118,8 @@ public class AutomationPracticeCreateAccountPage extends AbstractPage {
         mobilePhoneInput.type(phoneNumber);
     }
 
-    public void fillAlias(String alias){
-        aliasInput.type(alias);
-    }
-
-    public AutomationPracticeHomePage clickRegisterButton() {
+    public AutomationPracticeMyAccountPage clickRegisterButton() {
         registerButton.click();
-        return new AutomationPracticeHomePage(driver);
+        return new AutomationPracticeMyAccountPage(driver);
     }
 }
