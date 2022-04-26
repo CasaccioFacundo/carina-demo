@@ -1,0 +1,65 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Carina Demo - Test Automation Practice" parallel="tests" thread-count="6">
+
+    <parameter name="suiteOwner" value="qpsdemo"/>
+    <parameter name="jenkinsJobName" value="Automation-Practice-Test"/>
+    <parameter name="jenkinsJobType" value="web"/>
+    <parameter name="jenkinsEnvironments" value="DEMO"/>
+
+    <parameter name="jenkinsRegressionPipeline" value="DEMO"/>
+
+    <parameter name="jenkinsRegressionMatrix_full_regression" value="browser: chrome;"/>
+    <parameter name="jenkinsAutoScreenshot" value="true"/>
+
+    <test name="Home page inputs test">
+        <classes>
+            <class name="com.qaprosoft.carina.demo.AutomationPracticeHomePageInputsTest">
+                <methods>
+                    <include name="testSearchProduct"/>
+                    <include name="testSubscribeToNewsletter"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in test">
+        <classes>
+            <class name="com.qaprosoft.carina.demo.AutomationPracticeLogInTest">
+                <methods>
+                    <include name="testLogInInvalidPassword"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Contact form test">
+        <classes>
+            <class name="com.qaprosoft.carina.demo.AutomationPracticeContactTest">
+                <methods>
+                    <include name="testContactForm"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Check out validation test">
+        <classes>
+            <class name="com.qaprosoft.carina.demo.AutomationPracticeProceedCheckoutTest">
+                <methods>
+                    <include name="testProceedCheckoutWithoutLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Register account test">
+        <classes>
+            <class name="com.qaprosoft.carina.demo.AutomationPracticeRegisterTest">
+                <methods>
+                    <include name="testCreateAccount"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
