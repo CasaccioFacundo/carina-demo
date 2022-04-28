@@ -27,6 +27,7 @@
             <class name="com.qaprosoft.carina.demo.AutomationPracticeLogInTest">
                 <methods>
                     <include name="testLogInInvalidPassword"/>
+                    <include name="testLogIn"/>
                 </methods>
             </class>
         </classes>
