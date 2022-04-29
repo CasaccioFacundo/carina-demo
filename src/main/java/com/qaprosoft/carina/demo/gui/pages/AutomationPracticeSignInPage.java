@@ -37,12 +37,6 @@ public class AutomationPracticeSignInPage extends AbstractPage {
         return new AutomationPracticeCreateAccountPage(driver);
     }
 
-    public void failLogin(String email, String incorrectPassword) {
-        emailInput.type(email);
-        passwordInput.type(incorrectPassword);
-        signInButton.click();
-    }
-
     public boolean isSignInButtonPresent() {
         return signInButton.isElementPresent();
     }
@@ -53,5 +47,17 @@ public class AutomationPracticeSignInPage extends AbstractPage {
 
     public boolean getAuthenticationErrorAlertMessage() {
         return authenticationErrorAlert.isElementPresent();
+    }
+
+    public void typeEmail(String email) {
+        emailInput.type(email);
+    }
+
+    public void typePassword(String password) {
+        passwordInput.type(password);
+    }
+
+    public void clickSignInButton () {
+        signInButton.click();
     }
 }

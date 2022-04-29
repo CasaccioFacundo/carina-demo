@@ -2,10 +2,13 @@ package com.qaprosoft.carina.demo;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.demo.gui.pages.*;
+import com.qaprosoft.carina.demo.utils.ScreenshotService;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AutomationPracticeProceedCheckoutTest implements IAbstractTest {
+
+    ScreenshotService screenshotService = new ScreenshotService();
 
     @Test()
     public void testProceedCheckoutWithoutLogin() {
@@ -26,9 +29,14 @@ public class AutomationPracticeProceedCheckoutTest implements IAbstractTest {
         Assert.assertEquals(addedProductModalPage.getProductNameOnModal(), "Blouse");
         AutomationPracticeShoppingCartSummary shoppingCartSummary = addedProductModalPage.clickProceedToCheckOutButton();
 
-        //At shopping cart summary, click proceed to check out and check for request sign in page
+        //At shopping cart summary, click proceed to check out
         Assert.assertTrue(shoppingCartSummary.isProceedToCheckOutButtonPresent());
         AutomationPracticeSignInPage signInPage = shoppingCartSummary.clickProceedCheckout();
+
+        //Take screenshot of result
+        screenshotService.takeScreenshot("signinRequest");
+
+        //Check for sign in request
         Assert.assertTrue(signInPage.isSignInButtonPresent(), "Sign in was not requested");
         Assert.assertTrue(signInPage.isCreateAccountButtonPresent(), "Create an account was not requested");
     }

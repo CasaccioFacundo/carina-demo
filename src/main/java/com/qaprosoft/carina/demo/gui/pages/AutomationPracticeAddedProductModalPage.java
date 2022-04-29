@@ -41,8 +41,4 @@ public class AutomationPracticeAddedProductModalPage extends AbstractPage {
     public String getProductNameOnModal() {
         return productName.getText();
     }
-
-    public boolean isCartNotEmpty() {
-        return productName.isElementPresent();
-    }
 }
