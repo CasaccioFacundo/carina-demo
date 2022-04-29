@@ -1,10 +1,9 @@
 package com.qaprosoft.carina.demo.utils;
 
+import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.core.foundation.webdriver.IDriverPool;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -18,15 +17,8 @@ import static com.zebrunner.agent.core.registrar.TestRunRegistrar.LOGGER;
 
 public class ScreenshotService implements IDriverPool {
 
-    private final File directory = new File("src/test/resources/testdata");
+    private final File directory = new File(R.TESTDATA.get("screenshot_path"));
 
-    private WebDriver getDriverSafe() {
-        WebDriver driver = getDriver();
-        if (driver instanceof EventFiringWebDriver) {
-            driver = ((EventFiringWebDriver) driver).getWrappedDriver();
-        }
-        return driver;
-    }
     public void takeScreenshot() {
         File outputfile = new File(directory.getPath() + "/test-" + new Date() + ".png");
         BufferedImage screenshot = null;
@@ -34,7 +26,7 @@ public class ScreenshotService implements IDriverPool {
         createDirectory();
 
         try {
-            screenshot = ImageIO.read(((TakesScreenshot) getDriverSafe()).getScreenshotAs(OutputType.FILE));
+            screenshot = ImageIO.read(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE));
             ImageIO.write(screenshot, "PNG", outputfile);
         } catch (IOException e) {
             LOGGER.info("Unable to capture screenshot");
@@ -49,7 +41,7 @@ public class ScreenshotService implements IDriverPool {
         createDirectory();
 
         try {
-            screenshot = ImageIO.read(((TakesScreenshot) getDriverSafe()).getScreenshotAs(OutputType.FILE));
+            screenshot = ImageIO.read(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE));
             ImageIO.write(screenshot, "PNG", providedOutputFile);
         } catch (IOException e) {
             LOGGER.info("Unable to capture screenshot");
@@ -60,7 +52,7 @@ public class ScreenshotService implements IDriverPool {
     private void createDirectory() {
         if(!directory.exists())
         try {
-            Files.createDirectory(Path.of("src/test/resources/testdata"));
+            Files.createDirectory(Path.of(R.TESTDATA.get("screenshot_path")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
